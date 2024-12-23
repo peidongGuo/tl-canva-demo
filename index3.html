@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas 绘制函数</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      #canvas {
+        margin: 50px;
+        display: block;
+        width: 600px;
+        height: 300px;
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="600" height="300"></canvas>
+    <script type="module" lang="ts">
+      import { TLApp, Line, Rect } from "./src/native-canvas/main3";
+      const MockTLData = [
+        {
+          id: "1",
+          name: "桥梁1",
+          type: "桥梁",
+          startTime: "2023-01-01",
+          startLocation: "DK-100",
+          endTime: "2023-02-02",
+          endLocation: "DK-200",
+          workTimeRecords: [
+            {
+              startTime: "2023-01-01",
+              endTime: "2023-01-02",
+              location: "DK-100",
+            },
+            {
+              startTime: "2023-01-03",
+              endTime: "2023-01-04",
+              location: "DK-150",
+            },
+            {
+              startTime: "2023-01-05",
+              endTime: "2023-01-06",
+              location: "DK-200",
+            },
+          ],
+        },
+        {
+          id: "2",
+          name: "桥梁2",
+          type: "桥梁",
+          isKeyPoint: true,
+          startTime: "2023-03-01",
+          startLocation: "DK-300",
+          endTime: "2023-04-22",
+          endLocation: "DK-400",
+          workTimeRecords: [
+            {
+              startTime: "2023-03-01",
+              endTime: "2023-03-02",
+              location: "DK-300",
+            },
+            {
+              startTime: "2023-03-03",
+              endTime: "2023-03-04",
+              location: "DK-350",
+            },
+            {
+              startTime: "2023-03-05",
+              endTime: "2023-03-06",
+              location: "DK-400",
+            },
+          ],
+        },
+        {
+          id: "3",
+          name: "桥梁3",
+          type: "桥梁",
+          startTime: "2023-05-01",
+          startLocation: "DK-400",
+          endTime: "2023-06-12",
+          endLocation: "DK-500",
+          workTimeRecords: [
+            {
+              startTime: "2023-05-01",
+              endTime: "2023-05-02",
+              location: "DK-400",
+            },
+            {
+              startTime: "2023-05-03",
+              endTime: "2023-05-04",
+              location: "DK-450",
+            },
+            {
+              startTime: "2023-05-05",
+              endTime: "2023-05-06",
+              location: "DK-500",
+            },
+          ],
+        },
+        {
+          id: "4",
+          name: "桥梁4",
+          type: "桥梁",
+          startTime: "2023-07-01",
+          startLocation: "DK-600",
+          endTime: "2023-09-22",
+          endLocation: "DK-700",
+          workTimeRecords: [
+            {
+              startTime: "2023-07-01",
+              endTime: "2023-07-02",
+              location: "DK-600",
+            },
+            {
+              startTime: "2023-07-03",
+              endTime: "2023-07-04",
+              location: "DK-650",
+            },
+            {
+              startTime: "2023-07-05",
+              endTime: "2023-07-06",
+              location: "DK-700",
+            },
+          ],
+        },
+      ];
+      const canvas = document.getElementById("canvas");
+      const app = new TLApp(canvas, {
+        leftX: 0,
+        rightX: 1000, // 1600
+        bottomY: 0,
+        topY: 600, // 880
+        xGridWidthPx: 50,
+        yGridHeightPx: 30,
+      });
+
+      // app.draw();
+
+      // for (let i = 0; i < 100; i++) {
+      //   let tmpLine = new Line(
+      //     100 + 50 * i * Math.random(0, 10),
+      //     280 - 500 * i * Math.random(0, 10),
+      //     200 + 50 * i * Math.random(0, 10),
+      //     280 - 500 * i * Math.random(0, 10)
+      //   );
+      //   app.addLine(tmpLine);
+      // }
+
+      // for (let i = 0; i < 1000; i++) {
+      //   let x = 100 + 50 * i * Math.random(0, 10);
+      //   let y = 280 - 500 * i * Math.random(0, 10);
+      //   let tmpLine = new Line(x, y, x, y + 30 * Math.random(0, 10), "#ff0000");
+      //   app.addLine(tmpLine);
+      // }
+      let line = new Line(100 + 50, 280 - 50, 600 + 50, 280 - 600);
+      let line2 = new Line(150 + 50, 280 - 200, 600 + 50, 280 - 500);
+      app.addLine(line);
+      app.addLine(line2);
+
+      // let line = new Line(90, 35, 280, 75);
+      // console.log(line);
+      // app.addLine(line);
+      let rect = new Rect(100, 25, 150, 50);
+      app.addRect(rect);
+      app.draw();
+      // app.drawAnimate();
+      // app.drawBall(100, 100, 10, "#ff0000");
+      window.app = app;
+    </script>
+  </body>
+</html>

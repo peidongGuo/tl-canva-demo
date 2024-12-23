@@ -1,0 +1,31 @@
+{
+  "name": "function",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --host",
+    "start": "vite --host",
+    "serve": "vite --host",
+    "vite": "vite --host"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@antv/g": "5.18.14",
+    "@antv/g-canvas": "^1.11.12",
+    "@antv/g-webgl": "^1.9.19",
+    "@antv/react-g": "^1.10.12",
+    "@types/react-dom": "^18.2.7",
+    "dayjs": "^1.11.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vite": "^2.7.10"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.20",
+    "konva": "^9.2.0",
+    "react-konva": "^18.2.10"
+  }
+}
